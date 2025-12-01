@@ -1,6 +1,6 @@
 ---
-title: "Horários do Curso de Engenharia de Materiais"
-subtitle: "Semestre 2025/2"
+title: "Prévia de Horários do Curso de Engenharia de Materiais"
+subtitle: "Semestre 2026/1"
 format:
   html:
     toc: false
@@ -19,13 +19,22 @@ jupyter: python3
   <img src="https://wp.ufpel.edu.br/engmateriais/files/2025/02/engmat.png" alt="Logotipo do Curso de Engenharia de Materiais" style="height: 80px;">
 </div>
 
-**Universidade Federal de Pelotas (UFPel)** **Centro de Desenvolvimento Tecnológico (CDTec)** **Curso de Engenharia de Materiais**
+**Universidade Federal de Pelotas (UFPel)**  
+**Centro de Desenvolvimento Tecnológico (CDTec)**  
+**Curso de Engenharia de Materiais**
+
+Esta é uma prévia das disciplinas e horários planejados para o semestre 2026/1 no curso de Engenharia de Materiais da UFPel.
+
+O conteúdo está sujeito a atualizações frequentes até o início do semestre, com ajustes nas alocações de professores, horários, salas de aulas e turmas de alunos, conforme necessário.
+
+Abaixo estão as listas e tabelas geradas para facilitar a visualização das informações.
+
+As colisões de horários e outras inconsistências serão corrigidas à medida que forem identificadas.
 
 ---
 
 **Organização:** Coordenação do Curso de Engenharia de Materiais  
-**Contato:** [secretariamateriaisufpel@gmail.com](mailto:secretariamateriaisufpel@gmail.com)  
-**Última atualização:** 21/10/2025
+**Contato:** [secretariamateriaisufpel@gmail.com](mailto:secretariamateriaisufpel@gmail.com)
 
 ---
 
