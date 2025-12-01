@@ -43,6 +43,7 @@ As colisões de horários e outras inconsistências serão corrigidas à medida 
 # | echo: false
 
 # Importa o seu script
+import atualizacao
 import processar_horarios
 
 # Importa as funções de display do IPython
