@@ -1,1 +1,62 @@
-teste
+name: Renderizar e Publicar Horários
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */24 * * *'
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Authenticate to Google Sheets
+        env:
+          GOOGLE_CREDS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: echo "$GOOGLE_CREDS" > gcreds.json
+
+      - name: Clear gspread cache
+        run: rm -rf ~/.config/gspread
+
+      - name: Render Quarto Notebook
+        run: quarto render previa-2026-1.qmd --to html --no-cache --execute
+
+      # --- ESTE É O NOVO PASSO QUE CORRIGE O ERRO ---
+      - name: Prepare artifact directory
+        run: |
+          mkdir _site
+          mv previa-2026-1.html _site/index.html
+      # --------------------------------------------
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Agora estamos enviando a PASTA, como a ação espera
+          path: '_site' 
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
