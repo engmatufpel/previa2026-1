@@ -143,7 +143,7 @@ def processar_dados_e_gerar_html():
     Função principal que orquestra a leitura, processamento e geração do HTML.
     Retorna uma string contendo todo o HTML.
     """
-    print("Iniciando processamento de dados...")
+    #print("Iniciando processamento de dados...")
     df_planilha = autenticar_e_obter_dados()
     
     tabelas_professores = {}
@@ -151,7 +151,7 @@ def processar_dados_e_gerar_html():
     turnos_professores = {}
 
     # --- PROCESSAMENTO ---
-    print(f"Processando {len(df_planilha)} linhas...")
+    #print(f"Processando {len(df_planilha)} linhas...")
     for _, row in df_planilha.iterrows():
         # Extração segura de dados
         codigo = row.get('codigo', '')
@@ -225,7 +225,7 @@ def processar_dados_e_gerar_html():
                     continue
 
     # --- GERAÇÃO DO HTML ---
-    print("Gerando HTML final...")
+    #print("Gerando HTML final...")
     html_acumulado = """
     <html>
     <head>
