@@ -45,6 +45,7 @@ As colisões de horários e outras inconsistências serão corrigidas à medida 
 # Importa o seu script
 import atualizacao
 import processar_horarios
+import horarios_professores
 
 # Importa as funções de display do IPython
 from IPython.display import display, HTML
