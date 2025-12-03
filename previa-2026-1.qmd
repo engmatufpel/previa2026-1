@@ -51,7 +51,7 @@ import horarios_professores # Certifique-se que o arquivo .py tenha exatamente e
 from IPython.display import display, HTML
 
 # Adiciona uma separação visual
-display(HTML("<br><hr style='border: 2px solid #ccc; margin: 40px 0;'><br>"))
+display(HTML("<br><hr style='border: 2px solid #ccc; margin: 10px 0;'><br>"))
 display(HTML("<h1 style='text-align: center;'>Horários por Turma</h1>"))
 
 # 1. Gera e exibe as tabelas de horários gerais (Por semestre/turma)
@@ -59,7 +59,7 @@ html_tabelas_gerais = processar_horarios.gerar_html_todas_tabelas()
 display(HTML(html_tabelas_gerais))
 
 # Adiciona uma separação visual
-display(HTML("<br><hr style='border: 2px solid #ccc; margin: 40px 0;'><br>"))
+display(HTML("<br><hr style='border: 2px solid #ccc; margin: 10px 0;'><br>"))
 display(HTML("<h1 style='text-align: center;'>Horários por Professor</h1>"))
 
 # 2. Gera e exibe as tabelas por professor (Novo script)
