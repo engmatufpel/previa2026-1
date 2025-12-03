@@ -52,6 +52,7 @@ from IPython.display import display, HTML
 
 # Chama a função principal que retorna a string HTML
 html_das_tabelas = processar_horarios.gerar_html_todas_tabelas()
+html_das_tabelas = horarios_professores.gerar_html_todas_tabelas()
 
 # Usa display(HTML(...)) para renderizar a string como HTML bruto
 # Esta é a mudança principal
