@@ -125,12 +125,12 @@ def gerar_grade_horaria_semestre(lista_horarios, turnos_usados):
     df_base = pd.DataFrame({'horário': horarios_completos})
 
     # Pivota a tabela para formato grade
-    # aggfunc junta conteúdos se houver colisão de horário
+    # MODIFICADO AQUI: Removidos os <br> extras, usando apenas <hr> estilizado como separador
     pivot = df_grade.pivot_table(
         index='horário', 
         columns='dia', 
         values='conteudo', 
-        aggfunc=lambda x: '<br><hr style="margin:2px 0"><br>'.join(x) 
+        aggfunc=lambda x: '<hr style="margin: 4px 0; border: 0; border-top: 1px solid #ddd;">'.join(x) 
     ).fillna('')
 
     # Garante dias da semana na ordem correta
@@ -177,9 +177,8 @@ def gerar_html_todas_tabelas():
     df_planilha['semestre_int'] = df_planilha['semestre'].apply(safe_int)
 
     # Estruturas para agrupamento
-    # Chave: semestre_int. Valor: { 'horarios': [], 'detalhes': [], 'turnos': set() }
     grupos = {
-        'impares': {}, # 1, 3, 5...
+        'impares': {}, 
         'reofertas': {'horarios': [], 'detalhes': [], 'turnos': set()},
         'optativas': {'horarios': [], 'detalhes': [], 'turnos': set()}
     }
@@ -199,7 +198,6 @@ def gerar_html_todas_tabelas():
         nome_grade = f"{disciplina} {turma}" if turma else disciplina
         sala_exibicao = f"{sala_base} ({campus})" if campus else sala_base
 
-        # Dados para a tabela de detalhes (Lista abaixo da grade)
         linha_detalhe = {
             'codigo': codigo, 
             'disciplina': disciplina, 
@@ -210,7 +208,6 @@ def gerar_html_todas_tabelas():
 
         # Identifica o grupo
         grupo_alvo = None
-        chave_semestre = None
 
         if semestre == 88:
             grupo_alvo = grupos['optativas']
@@ -219,7 +216,6 @@ def gerar_html_todas_tabelas():
                 if semestre not in grupos['impares']:
                     grupos['impares'][semestre] = {'horarios': [], 'detalhes': [], 'turnos': set()}
                 grupo_alvo = grupos['impares'][semestre]
-                chave_semestre = semestre
             else: # Par (Reoferta)
                 grupo_alvo = grupos['reofertas']
         
@@ -246,7 +242,6 @@ def gerar_html_todas_tabelas():
                             hora_real = lista_h[aula_cod]
                             dia_real = DIAS_DA_SEMANA[dia_cod]
                             
-                            # FORMATAÇÃO DA CÉLULA (SOLICITADO: Negrito no Código, Nome abaixo, Sem sala)
                             texto_celula = f"<b>{codigo}</b><br><span style='font-size:0.85em'>{nome_grade}</span>"
                             
                             grupo_alvo['horarios'].append([hora_real, dia_real, texto_celula])
@@ -268,11 +263,8 @@ def gerar_html_todas_tabelas():
         if not dados['horarios']: continue
 
         html += f"<h1 class='titulo-semestre'>{sem}º Semestre</h1>"
-        
-        # Grade Visual
         html += gerar_grade_horaria_semestre(dados['horarios'], dados['turnos'])
         
-        # Tabela Detalhada
         df_det = pd.DataFrame(dados['detalhes'])
         html += "<h2 class='subtitulo'>Disciplinas, Salas e Professores</h2>"
         html += gerar_tabela_detalhes_html(df_det)
