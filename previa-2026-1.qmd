@@ -60,10 +60,10 @@ display(HTML(html_tabelas_gerais))
 
 # Adiciona uma separação visual
 #display(HTML("<br><hr style='border: 2px solid #ccc; margin: 10px 0;'><br>"))
-display(HTML("<h1 style='text-align: center;'>Horários por Professor</h1>"))
+#display(HTML("<h1 style='text-align: center;'>Horários por Professor</h1>"))
 
 # 2. Gera e exibe as tabelas por professor (Novo script)
 # A função principal no script que criamos chama-se 'processar_dados_e_gerar_html'
-html_tabelas_professores = horarios_professores.processar_dados_e_gerar_html()
-display(HTML(html_tabelas_professores))
+#html_tabelas_professores = horarios_professores.processar_dados_e_gerar_html()
+#display(HTML(html_tabelas_professores))
 ```
