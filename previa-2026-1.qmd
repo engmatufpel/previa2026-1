@@ -25,10 +25,6 @@ jupyter: python3
 
 Este é o planejamento consolidado das disciplinas e horários para o semestre 2026/1 do curso de Engenharia de Materiais da UFPel.
 
-O conteúdo poderá passar por pequenos ajustes pontuais e pela definição do ensalamento (alocação das salas de aula) até o início do semestre.
-
-Ressaltamos que a alocação de alguns docentes ainda está pendente; os nomes serão inseridos e atualizados nas tabelas assim que os professores forem oficialmente nominados.
-
 Abaixo estão as listas e tabelas geradas para facilitar a visualização das informações.
 
 ---
